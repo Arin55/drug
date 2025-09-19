@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Drug Inventory System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2695.svg">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <img class="brand-logo" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2695.svg" alt="Medical">
+                <span class="brand-name">Drug Inventory System</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li class="disabled"><a href="#" aria-disabled="true">Home</a></li>
+                    <li class="disabled"><a href="#" aria-disabled="true">About Us</a></li>
+                    <li class="disabled"><a href="#" aria-disabled="true">Inventory</a></li>
+                    <li class="disabled"><a href="#" aria-disabled="true">Supply</a></li>
+                </ul>
+            </nav>
+            <div class="auth-actions">
+                <a class="btn btn-ghost" href="login.html">Login</a>
+                <a class="btn btn-primary" href="register.html">Register</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main class="page">
+        <section class="page-hero">
+            <div class="container">
+                <h1>About the Drug Inventory System</h1>
+                <p>Our mission is to simplify pharmacy operations with a clean, fast, and reliable stock management experience—helping teams avoid stockouts, track expiries, and streamline supplier relations.</p>
+            </div>
+        </section>
+
+        <section class="page-content container grid-2">
+            <div>
+                <h2>Why we built this</h2>
+                <p>Pharmacies handle thousands of SKUs with varying expiries and storage conditions. We designed a system that prioritizes clarity, speed, and accuracy.</p>
+                <ul class="checklist">
+                    <li>Real-time search and filtering</li>
+                    <li>Clear visibility of expiries and low stock</li>
+                    <li>Supplier tracking to prevent delays</li>
+                    <li>Responsive UI for mobile devices</li>
+                </ul>
+            </div>
+            <div class="image-stack">
+                <img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1200&auto=format&fit=crop" alt="Hospital team">
+                <img class="overlap" src="https://images.unsplash.com/photo-1582003383300-3b85b3a3d7c2?q=80&w=1200&auto=format&fit=crop" alt="Hospital building">
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>© 2025 Drug Inventory and Supply Chain Tracking System</span>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+</body>
+<script>
+    document.querySelectorAll('.nav li.disabled a').forEach(a => a.addEventListener('click', e => e.preventDefault()));
+</script>
+</html>
+
+

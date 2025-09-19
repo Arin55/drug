@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drug Inventory System - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2695.svg">
+    <meta name="description" content="Responsive Drug Inventory System for pharmacy-style dashboard (frontend-only).">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <img class="brand-logo" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2695.svg" alt="Medical">
+                <span class="brand-name">Drug Inventory System</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li class="disabled"><a href="#" aria-disabled="true">Home</a></li>
+                    <li class="disabled"><a href="#" aria-disabled="true">About Us</a></li>
+                    <li class="disabled"><a href="#" aria-disabled="true">Inventory</a></li>
+                    <li class="disabled"><a href="#" aria-disabled="true">Supply</a></li>
+                </ul>
+            </nav>
+            <div class="auth-actions">
+                <button id="themeToggle" class="btn btn-ghost" title="Toggle theme">🌓</button>
+                <a class="btn btn-ghost" href="login.html">Login</a>
+                <a class="btn btn-primary" href="register.html">Register</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-banner">
+            <div class="container hero-inner one-col">
+                <div class="hero-copy">
+                    <h1>Drug Inventory and Supply Chain Tracking System</h1>
+                    <p>Track drugs, suppliers, and supplies with a hospital-grade dashboard. Clean UI, autosuggest search, and responsive design.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary" href="login.html">Go to Dashboard</a>
+                        <a class="btn btn-ghost" href="register.html">Create Account</a>
+                    </div>
+                    <div class="chips">
+                        <span class="chip">Clean, hospital-grade UI</span>
+                        <span class="chip">Autosuggest Search</span>
+                        <span class="chip">Supplier & Supplies tracking</span>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-decor" aria-hidden="true">
+                <span class="pill"></span>
+                <span class="dna"></span>
+                <span class="syringe"></span>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container grid-3">
+                <div class="card">
+                    <div class="card-icon">💊</div>
+                    <h3>Inventory Overview</h3>
+                    <p>Clean cards and tables summarizing stock levels, expiries, and categories.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🏭</div>
+                    <h3>Suppliers</h3>
+                    <p>Track suppliers and supply status for reliable restocking.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Fast Search</h3>
+                    <p>Type to search with autosuggestions for quick drug lookups.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="mobile-tabbar">
+        <div class="tabs">
+            <a href="#" class="disabled" title="Home"><span class="icon">🏠</span>Home</a>
+            <a href="#" class="disabled" title="About"><span class="icon">ℹ️</span>About</a>
+            <a href="#" class="disabled" title="Inventory"><span class="icon">📦</span>Inventory</a>
+            <a href="#" class="disabled" title="Supply"><span class="icon">🚚</span>Supply</a>
+            <a href="login.html" title="Login"><span class="icon">🔐</span>Login</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>© 2025 Drug Inventory and Supply Chain Tracking System</span>
+        </div>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+      document.querySelectorAll('.mobile-tabbar a.disabled').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
+    </script>
+</body>
+<script>
+    // Prevent disabled nav links from navigating
+    document.querySelectorAll('.nav li.disabled a').forEach(a => {
+        a.addEventListener('click', e => e.preventDefault());
+    });
+</script>
+</html>
+

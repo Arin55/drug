@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Drug Inventory System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2695.svg">
+</head>
+<body class="auth-page">
+    <div class="auth-card">
+        <div class="auth-brand">
+            <img class="brand-logo" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2695.svg" alt="Medical">
+            <h1>Drug Inventory System</h1>
+            <p>Welcome back. Sign in to continue.</p>
+        </div>
+        <form id="loginForm" class="form">
+            <label>Email
+                <input type="email" id="loginEmail" required placeholder="you@example.com">
+            </label>
+            <label>Password
+                <input type="password" id="loginPassword" required placeholder="••••••••">
+            </label>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+        <p class="muted">Don't have an account? <a class="link" href="register.html">Create one</a></p>
+        <a class="link" href="index.html">Back to Home</a>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/auth.js"></script>
+</body>
+</html>
+
+
