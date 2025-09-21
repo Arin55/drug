@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart • Drug Inventory System</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="description" content="Cart and sample products for the Drug Inventory System prototype." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <i class="fa-solid fa-capsules"></i>
+        <span class="brand-name">Drug Inventory System</span>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="push-right"><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+      <div class="header-ctrls">
+        <a class="btn btn-ghost" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <div class="page-hero">
+        <h1>Your Cart</h1>
+        <p id="cartStatus" class="muted">Cart is empty. Explore products below and add to cart.</p>
+      </div>
+
+      <section class="features" style="padding-top:0">
+        <h2 style="margin:0 0 10px">Featured Medicines</h2>
+        <p class="muted" style="margin:0 0 16px">Fetched live from a public API for demonstration.</p>
+        <div id="prodGrid" class="grid-3"></div>
+      </section>
+
+      <section class="page" style="padding-top:0">
+        <h2 style="margin:0 0 10px">Items in Cart</h2>
+        <div id="cartGrid" class="grid-3"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2025 Drug Inventory System - SIH Project</span>
+  </footer>
+
+  <script>
+    // Simple theme follow from index
+    (function() {
+      const root = document.documentElement;
+      const stored = localStorage.getItem('theme');
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      if ((stored || (prefersLight ? 'light' : 'dark')) === 'light') root.classList.add('light');
+    })();
+
+    // Demo API: dummyjson medicines category (if not available, fall back)
+    const prodGrid = document.getElementById('prodGrid');
+    const cartGrid = document.getElementById('cartGrid');
+    const cartStatus = document.getElementById('cartStatus');
+    let cart = JSON.parse(localStorage.getItem('cart-items') || '[]');
+
+    function renderCart() {
+      if (!cart.length) {
+        cartGrid.innerHTML = '';
+        cartStatus.textContent = 'Cart is empty. Explore products above and add to cart.';
+        return;
+      }
+      cartStatus.textContent = `You have ${cart.length} item(s) in cart.`;
+      cartGrid.innerHTML = cart.map(p => `
+        <div class="card">
+          <div style="display:flex; gap:10px; align-items:center;">
+            <img src="${p.thumbnail}" alt="${p.title}" style="width:56px;height:56px;object-fit:cover;border-radius:10px;border:1px solid #1d2f54;" />
+            <div>
+              <h4 style="margin:0 0 6px">${p.title}</h4>
+              <div class="muted">$${p.price}</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:8px; margin-top:10px;">
+            <button class="btn" data-remove="${p.id}"><i class="fa-solid fa-trash"></i> Remove</button>
+          </div>
+        </div>
+      `).join('');
+
+      cartGrid.querySelectorAll('[data-remove]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = Number(btn.getAttribute('data-remove'));
+          cart = cart.filter(x => x.id !== id);
+          localStorage.setItem('cart-items', JSON.stringify(cart));
+          renderCart();
+        });
+      });
+    }
+
+    async function loadProducts() {
+      prodGrid.innerHTML = '<div class="muted">Loading products…</div>';
+      try {
+        const res = await fetch('https://dummyjson.com/products/category/medicine?limit=6');
+        if (!res.ok) throw new Error('Network');
+        const data = await res.json();
+        const items = data.products || [];
+        prodGrid.innerHTML = items.map(p => `
+          <div class="card">
+            <img src="${p.thumbnail}" alt="${p.title}" style="width:100%;height:140px;object-fit:cover;border-radius:12px;border:1px solid #1d2f54;margin-bottom:8px;" />
+            <h4 style="margin:0 0 6px">${p.title}</h4>
+            <p class="muted" style="margin:0 0 8px;min-height:38px;">${(p.description||'').slice(0,80)}…</p>
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;">
+              <strong>$${p.price}</strong>
+              <button class="btn btn-primary" data-add='${JSON.stringify({id:""+p.id,title:p.title,price:p.price,thumbnail:p.thumbnail}).replace(/'/g,"&apos;")}'><i class="fa-solid fa-cart-plus"></i> Add</button>
+            </div>
+          </div>
+        `).join('');
+
+        prodGrid.querySelectorAll('[data-add]').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const item = JSON.parse(btn.getAttribute('data-add'));
+            const exists = cart.find(x => x.id == item.id);
+            if (!exists) {
+              cart.push(item);
+              localStorage.setItem('cart-items', JSON.stringify(cart));
+              renderCart();
+            }
+          });
+        });
+      } catch (e) {
+        prodGrid.innerHTML = '<div class="muted">Failed to load products. Please try again later.</div>';
+      }
+    }
+
+    renderCart();
+    loadProducts();
+  </script>
+</body>
+</html>

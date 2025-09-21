@@ -1,114 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drug Inventory System - Home</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="icon" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2695.svg">
-    <meta name="description" content="Responsive Drug Inventory System for pharmacy-style dashboard (frontend-only).">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pharmacy Prototype</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="description" content="Simple Prototype for Pharmacy + Hospital EPR.">
 </head>
 <body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <div class="brand">
-                <img class="brand-logo" src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/2695.svg" alt="Medical">
-                <span class="brand-name">Drug Inventory System</span>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li class="disabled"><a href="#" aria-disabled="true">Home</a></li>
-                    <li class="disabled"><a href="#" aria-disabled="true">About Us</a></li>
-                    <li class="disabled"><a href="#" aria-disabled="true">Inventory</a></li>
-                    <li class="disabled"><a href="#" aria-disabled="true">Supply</a></li>
-                </ul>
-            </nav>
-            <div class="auth-actions">
-                <button id="themeToggle" class="btn btn-ghost" title="Toggle theme">🌓</button>
-                <a class="btn btn-ghost" href="login.html">Login</a>
-                <a class="btn btn-primary" href="register.html">Register</a>
-            </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Open Menu">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </header>
 
-    <main>
-        <section class="hero hero-banner">
-            <div class="container hero-inner one-col">
-                <div class="hero-copy">
-                    <h1>Drug Inventory and Supply Chain Tracking System</h1>
-                    <p>Track drugs, suppliers, and supplies with a hospital-grade dashboard. Clean UI, autosuggest search, and responsive design.</p>
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="login.html">Go to Dashboard</a>
-                        <a class="btn btn-ghost" href="register.html">Create Account</a>
-                    </div>
-                    <div class="chips">
-                        <span class="chip">Clean, hospital-grade UI</span>
-                        <span class="chip">Autosuggest Search</span>
-                        <span class="chip">Supplier & Supplies tracking</span>
-                    </div>
-                </div>
-            </div>
-            <div class="banner-decor" aria-hidden="true">
-                <span class="pill"></span>
-                <span class="dna"></span>
-                <span class="syringe"></span>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container grid-3">
-                <div class="card">
-                    <div class="card-icon">💊</div>
-                    <h3>Inventory Overview</h3>
-                    <p>Clean cards and tables summarizing stock levels, expiries, and categories.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🏭</div>
-                    <h3>Suppliers</h3>
-                    <p>Track suppliers and supply status for reliable restocking.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">⚡</div>
-                    <h3>Fast Search</h3>
-                    <p>Type to search with autosuggestions for quick drug lookups.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div class="mobile-tabbar">
-        <div class="tabs">
-            <a href="#" class="disabled" title="Home"><span class="icon">🏠</span>Home</a>
-            <a href="#" class="disabled" title="About"><span class="icon">ℹ️</span>About</a>
-            <a href="#" class="disabled" title="Inventory"><span class="icon">📦</span>Inventory</a>
-            <a href="#" class="disabled" title="Supply"><span class="icon">🚚</span>Supply</a>
-            <a href="login.html" title="Login"><span class="icon">🔐</span>Login</a>
-        </div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <i class="fa-solid fa-capsules"></i>
+        <span class="brand-name">Drug Inventory System</span>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li>
+            <a href="#">Medicines</a>
+            <ul class="dropdown">
+              <li><a href="#">Equipment</a></li>
+              <li><a href="#">Tablets</a></li>
+              <li><a href="#">Injections</a></li>
+              <li><a href="#">Syrups</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Orders</a>
+            <ul class="dropdown">
+              <li><a href="#">My Orders</a></li>
+              <li><a href="#">Order History</a></li>
+              <li><a href="#">Track Order</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Inventory</a>
+            <ul class="dropdown">
+              <li><a href="#">Stock Status</a></li>
+              <li><a href="#">Expiry Alerts</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Hospital EPR</a>
+            <ul class="dropdown">
+              <li><a href="#">Patient Records</a></li>
+              <li><a href="#">Prescription Handling</a></li>
+              <li><a href="#">Billing & Insurance</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Mediserve</a>
+            <ul class="dropdown">
+              <li><a href="#">Surgery</a></li>
+              <li><a href="#">Radiology</a></li>
+              <li><a href="#">Pathology</a></li>
+              <li><a href="#">Emergency</a></li>
+            </ul>
+          </li>
+          <li><a href="cart.html">Cart</a></li>
+          <!-- Right-aligned auth: Login direct -->
+          <li class="push-right">
+            <a href="login.html">Login</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- Header controls: menu + theme toggle -->
+      <div class="header-ctrls">
+        <button class="nav-toggle" aria-label="Toggle menu"><i class="fa-solid fa-bars"></i></button>
+        <button id="themeToggle" aria-label="Toggle theme" title="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+      </div>
     </div>
+  </header>
+  <!-- Overlay not used for panel nav; keeping none -->
 
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <span>© 2025 Drug Inventory and Supply Chain Tracking System</span>
+  <!-- Hero Section -->
+  <main>
+    <section class="hero hero-banner">
+      <div class="container">
+        <h1>Drug Inventory + Hospital EPR</h1>
+        <p>Manage medicines, track orders, monitor inventory, and access hospital services — all in one responsive prototype.</p>
+        <div class="hero-actions">
+          <a href="login.html">Go to Dashboard</a>
+          <a href="register.html">Create Account</a>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="assets/js/app.js"></script>
-    <script>
-      document.querySelectorAll('.mobile-tabbar a.disabled').forEach(a=>a.addEventListener('click',e=>e.preventDefault()));
-    </script>
-</body>
-<script>
-    // Prevent disabled nav links from navigating
-    document.querySelectorAll('.nav li.disabled a').forEach(a => {
-        a.addEventListener('click', e => e.preventDefault());
+    <!-- Toggleable Panels (shown by navbar items) -->
+    <section class="container">
+      <div id="section-medicines" class="section-panel" hidden>
+        <h3>Medicines</h3>
+        <p class="muted">Tablets, syrups, injections, and equipment with price, salt, and expiry info.</p>
+      </div>
+      <div id="section-orders" class="section-panel" hidden>
+        <h3>Orders</h3>
+        <p class="muted">My Orders, Order History, and Track Order.</p>
+      </div>
+      <div id="section-inventory" class="section-panel" hidden>
+        <h3>Inventory</h3>
+        <p class="muted">Live stock, low‑stock indicators, batches, and expiry alerts.</p>
+      </div>
+      <div id="section-epr" class="section-panel" hidden>
+        <h3>Hospital EPR</h3>
+        <p class="muted">Patient records, prescriptions, billing & insurance.</p>
+      </div>
+      <div id="section-mediserve" class="section-panel" hidden>
+        <h3>Mediserve</h3>
+        <p class="muted">Surgery, Radiology, Pathology, and Emergency services.</p>
+      </div>
+    </section>
+
+    <!-- Features section (click to expand) -->
+    <section class="features">
+      <div class="container">
+        <div class="grid-3">
+          <button class="card acc-btn" data-acc="med">
+            <div class="card-icon">💊</div>
+            <h3>Medicines</h3>
+            <p class="muted">Browse and manage tablets, syrups, and injections.</p>
+          </button>
+          <button class="card acc-btn" data-acc="inv">
+            <div class="card-icon">📦</div>
+            <h3>Inventory</h3>
+            <p class="muted">Stock status and expiry alerts for timely restocking.</p>
+          </button>
+          <button class="card acc-btn" data-acc="epr">
+            <div class="card-icon">🏥</div>
+            <h3>Hospital EPR</h3>
+            <p class="muted">Patient records, prescriptions, billing & insurance.</p>
+          </button>
+        </div>
+        <div id="acc-med" class="accordion" hidden>
+          <h4>Medicines Module</h4>
+          <ul class="checklist">
+            <li>Search medicines by name, salt, brand</li>
+            <li>Categories: tablets, syrups, injections, equipment</li>
+            <li>Price, stock, and expiry information</li>
+          </ul>
+        </div>
+        <div id="acc-inv" class="accordion" hidden>
+          <h4>Inventory Module</h4>
+          <ul class="checklist">
+            <li>Real‑time stock status and low‑stock alerts</li>
+            <li>Batch/lot tracking with expiry alerts</li>
+            <li>Simple purchase and GRN recording</li>
+          </ul>
+        </div>
+        <div id="acc-epr" class="accordion" hidden>
+          <h4>Hospital EPR</h4>
+          <ul class="checklist">
+            <li>Patient records with prescription history</li>
+            <li>Prescription to medicine mapping</li>
+            <li>Billing & insurance support</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- API data section -->
+    <section id="api" class="page">
+      <div class="container">
+        <div class="page-hero small">
+          <h2>Popular Medicines</h2>
+          <p>Top products fetched live from a public pharmacy dataset.</p>
+        </div>
+        <div id="apiList" class="grid-3"></div>
+        <div id="apiStatus" class="muted" style="margin-top:10px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span>© 2025 Drug Inventory System </span>
+  </footer>
+
+  <!-- Simple Dropdown Script -->
+  <script>
+    const nav = document.querySelector('.nav');
+    const toggleBtn = document.querySelector('.nav-toggle');
+    const themeBtn = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    // Panel controls (no browser history)
+    function openMenu() {
+      if (!nav.classList.contains('open')) {
+        nav.classList.add('open');
+        const first = nav.querySelector('a');
+        if (first) first.focus({preventScroll:true});
+      }
+    }
+    function closeMenu() {
+      nav.classList.remove('open');
+      document.querySelectorAll('.nav > ul > li.open').forEach(li => li.classList.remove('open'));
+    }
+    // Toggle mobile menu
+    toggleBtn.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        if (nav.classList.contains('open')) closeMenu(); else openMenu();
+      }
     });
-</script>
-</html>
+    // ESC to close
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
+    // Desktop: show dropdowns on hover AND toggle on click; Mobile: toggle on click
+    const navItems = document.querySelectorAll('.nav > ul > li');
+    navItems.forEach((item) => {
+      const link = item.querySelector('a');
+      const drop = item.querySelector('.dropdown');
+
+      // Hover behavior for desktop
+      item.addEventListener('mouseenter', () => {
+        if (window.innerWidth > 900 && drop) drop.style.display = 'block';
+      });
+      item.addEventListener('mouseleave', () => {
+        if (window.innerWidth > 900 && drop) drop.style.display = 'none';
+      });
+
+      // Click behavior for mobile: open/close submenus
+      if (drop && link) {
+        link.addEventListener('click', (e) => {
+          if (window.innerWidth <= 900) {
+            // For 'Login' item on mobile, follow link (no dropdown)
+            if (item.classList.contains('push-right')) return;
+            e.preventDefault();
+            // Close others first for accordion-like behavior
+            document.querySelectorAll('.nav > ul > li.open').forEach(li => { if (li !== item) li.classList.remove('open'); });
+            item.classList.toggle('open');
+          } else {
+            // Desktop: toggle dropdown on click too
+            if (drop) {
+              e.preventDefault();
+              const isOpen = item.classList.contains('open');
+              document.querySelectorAll('.nav > ul > li.open').forEach(li => li.classList.remove('open'));
+              if (!isOpen) item.classList.add('open');
+            }
+          }
+        });
+      }
+
+      // Close menu when a link without dropdown is clicked (mobile)
+      if (!drop && link) {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 900) closeMenu();
+        });
+      }
+    });
+
+    // Close mobile menu on outside click
+    document.addEventListener('click', (e) => {
+      const within = e.target.closest('.nav') || e.target.closest('.nav-toggle');
+      if (!within && window.innerWidth <= 900) {
+        closeMenu();
+      }
+      // Close any open desktop toggled dropdown when clicking outside
+      if (!within && window.innerWidth > 900) {
+        document.querySelectorAll('.nav > ul > li.open').forEach(li => li.classList.remove('open'));
+      }
+    });
+
+    // Close panel when resizing to desktop
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 900) closeMenu();
+    });
+
+    // No browser-history manipulation; native Back behaves normally
+
+    // Theme handling
+    function applyTheme(theme) {
+      if (theme === 'light') {
+        root.classList.add('light');
+        if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+      } else {
+        root.classList.remove('light');
+        if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+      }
+    }
+
+    // Initialize theme from storage or system preference
+    const storedTheme = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    applyTheme(storedTheme || (prefersLight ? 'light' : 'dark'));
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', () => {
+        const isLight = root.classList.contains('light');
+        const next = isLight ? 'dark' : 'light';
+        localStorage.setItem('theme', next);
+        applyTheme(next);
+      });
+    }
+
+    // API: fetch and render medicines (DummyJSON)
+    const apiList = document.getElementById('apiList');
+    const apiStatus = document.getElementById('apiStatus');
+    async function loadApi() {
+      if (!apiList || !apiStatus) return;
+      apiStatus.textContent = 'Loading medicines…';
+      try {
+        const res = await fetch('https://dummyjson.com/products/category/medicine?limit=6');
+        if (!res.ok) throw new Error('Network error');
+        const data = await res.json();
+        const items = data.products || [];
+        apiList.innerHTML = items.map(p => `
+          <div class="card">
+            <img src="${p.thumbnail}" alt="${p.title}" style="width:100%;height:140px;object-fit:cover;border-radius:12px;border:1px solid #1d2f54;margin-bottom:8px;" />
+            <h4 style="margin:0 0 6px">${p.title}</h4>
+            <p class="muted" style="margin:0">$${p.price}</p>
+          </div>
+        `).join('');
+        apiStatus.textContent = '';
+      } catch (e) {
+        apiStatus.textContent = 'Failed to load medicines. Please try again later.';
+      }
+    }
+    loadApi();
+
+    // Accordion: open/close feature sections
+    document.querySelectorAll('.acc-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.getAttribute('data-acc');
+        const target = document.getElementById(`acc-${key}`);
+        if (!target) return;
+        const isHidden = target.hasAttribute('hidden');
+        // Close others
+        document.querySelectorAll('.accordion').forEach(sec => sec.setAttribute('hidden',''));
+        // Toggle current
+        if (isHidden) target.removeAttribute('hidden'); else target.setAttribute('hidden','');
+      });
+    });
+
+    // Section panels (toggled by top nav items)
+    const sectionLinks = document.querySelectorAll('.nav a[data-section]');
+    sectionLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const key = link.getAttribute('data-section');
+        if (key === 'home') {
+          document.querySelectorAll('.section-panel').forEach(p => p.setAttribute('hidden',''));
+          if (window.innerWidth <= 900) closeMenu();
+          window.scrollTo({top: 0, behavior: 'smooth'});
+          return;
+        }
+        const panel = document.getElementById(`section-${key}`);
+        if (!panel) return;
+        const willOpen = panel.hasAttribute('hidden');
+        // Close all panels first
+        document.querySelectorAll('.section-panel').forEach(p => p.setAttribute('hidden',''));
+        // Toggle
+        if (willOpen) {
+          panel.removeAttribute('hidden');
+          // If mobile, close the nav menu so content is visible
+          if (window.innerWidth <= 900) closeMenu();
+          // Smooth scroll into view
+          panel.scrollIntoView({behavior:'smooth', block:'start'});
+        } else {
+          panel.setAttribute('hidden','');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
